@@ -821,7 +821,7 @@ class Trainer:
         self.train_epoch_end()
         self._add_epoch_loss_to_run_history("train_loss_epoch")
         self.callback_handler.call_event(
-            "on_train_epoch_end",
+            "on_train_iter_end",
             self,
         )
 
