@@ -812,6 +812,12 @@ class Trainer:
                     self.scheduler_step()
                 self.optimizer_zero_grad()
 
+
+            self.callback_handler.call_event(
+                "on_train_step_end",
+                self,
+            )
+
         self.train_epoch_end()
         self._add_epoch_loss_to_run_history("train_loss_epoch")
         self.callback_handler.call_event(
